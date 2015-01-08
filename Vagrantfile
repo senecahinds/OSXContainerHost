@@ -13,6 +13,7 @@ VAGRANTFILE_API_VERSION = "2"
 # Change these to suite your needs / machine
 CPUS   = 4
 MEMORY = 6096
+DRUPAL_DIR = "/Users/mwisner/Projects/printsites/dockers/store/www"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "container-host" do |node|
@@ -31,21 +32,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     node.nfs.map_uid = Process.uid
     node.nfs.map_gid = Process.gid
 
+    #sync the entire users folder for things like logs and whatever else.
     node.vm.synced_folder "/Users", "/Users.tmp", type: "nfs",
       mount_options: ['rw', 'vers=3', 'tcp', 'fsc' ,'actimeo=2']
     node.bindfs.bind_folder "/Users.tmp", "/Users",
       create_as_user: true,
       perms: "u=u:g=g:o=o"
 
-    config.vm.synced_folder "/Users/mwisner/Projects/printsites/dockers/store/www", "/www.tmp", type: "rsync",
+    #use rsync for drupal. Non-rsync methods have proven too slow.
+    config.vm.synced_folder DRUPAL_DIR, "/www.tmp", type: "rsync",
       rsync__exclude: ".git/"
     node.bindfs.bind_folder "/www.tmp", "/www",
       create_as_user: true,
       perms: "u=u:g=g:o=o"
-  #  node.vm.synced_folder "/Users/mwisner/Projects/printsites/dockers/store/data", "/datatest.tmp", type: "nfs"
-#    node.bindfs.bind_folder "/datatest.tmp", "/datatest",
-#      create_as_user: true,
-#      perms: "u=u:g=g:o=o"
 
     node.vm.provision "ansible" do |ansible|
       ansible.playbook = "provisioning/ansible/container_host.yml"
