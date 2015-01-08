@@ -17,12 +17,11 @@ DRUPAL_DIR = "/Users/mwisner/Projects/printsites/dockers/store/www"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "container-host" do |node|
-    node.vm.box = "phusion/ubuntu-14.04-amd64"
+    node.vm.box = "ubuntu/trusty64"
     node.vm.hostname = "container-host"
 
-    node.vm.provider "vmware_fusion" do |v|
+    node.vm.provider "virtualbox" do |v|
       v.name = "container-host"
-
       v.cpus   = CPUS
       v.memory = MEMORY
     end
