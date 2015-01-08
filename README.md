@@ -14,10 +14,10 @@ A Vagrant provisioned VM to run Docker containers in.
 ```
 $ git clone git@github.com:SeerUK/OSXContainerHost.git
 $ vagrant up
-$ export DOCKER_HOST=tcp://192.168.200.2:2375
+$ export DOCKER_HOST=tcp://192.168.200.3:2375
 ```
 
-(Or alternatively, add: `export DOCKER_HOST=tcp://192.168.200.2:2375` to whatever shell rc is relevent to your system)
+(Or alternatively, add: `export DOCKER_HOST=tcp://192.168.200.3:2375` to whatever shell rc is relevent to your system)
 
 ## Things to be wary of
 
