@@ -39,11 +39,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       perms: "u=u:g=g:o=o"
 
     #use rsync for drupal. Non-rsync methods have proven too slow.
-    config.vm.synced_folder DRUPAL_DIR, "/www.tmp", type: "rsync",
+    config.vm.synced_folder DRUPAL_DIR, "/www", type: "rsync",
       rsync__exclude: ".git/"
-    node.bindfs.bind_folder "/www.tmp", "/www",
-      create_as_user: true,
-      perms: "u=u:g=g:o=o"
+  #  node.bindfs.bind_folder "/www.tmp", "/www",
+  #    create_as_user: true,
+  #    perms: "u=u:g=g:o=o"
 
     node.vm.provision "ansible" do |ansible|
       ansible.playbook = "provisioning/ansible/container_host.yml"
