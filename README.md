@@ -3,13 +3,14 @@ OSXContainerHost
 
 A Vagrant provisioned VM for OSX to run Docker containers in.
 * Ubuntu 14.04
-* NSF Support
-* Rsync Support for your project directory
+* NSF support
+* Rsync support for your project directory
+* Per-dev settings file with YAML.
 
 ## Requirements
 
 | Requirement    | Notes        |
-| -------------- | ------------ |
+| :-------------- | :------------ |
 | Virtualbox     | https://www.virtualbox.org/wiki/Downloads |
 | Docker         | https://github.com/boot2docker/osx-installer/releases/latest Note: Boot2docker itself isn't used, but it comes with docker. You can probably install docker another way if you do not want boot2docker itself on your system. |
 | Vagrant        | https://www.vagrantup.com/downloads.html (Requires 1.7+) |
