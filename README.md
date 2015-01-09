@@ -34,6 +34,9 @@ $ export DOCKER_HOST=tcp://192.168.200.3:2375
 ```
 (Or alternatively, add: `export DOCKER_HOST=tcp://192.168.200.3:2375` to whatever shell rc is relevent to your system)
 
+Verify docker is running correctly with ```docker ps```. If this command returns an error try running `vagrant reload`. It seems to take a reload to get docker to run correctly for some reason after a newly created vm.
+
+
 #### Rsync
 ```
 $ vagrant rsync-auto
