@@ -7,13 +7,14 @@ A Vagrant provisioned VM for OSX to run Docker containers in.
 * Rsync Support for your project directory
 
 ## Requirements
-| Requirement | Notes |
-| ------------------- |
-| Virtualbox | https://www.virtualbox.org/wiki/Downloads |
-| Docker | https://github.com/boot2docker/osx-installer/releases/latest Note: Boot2docker itself isn't used, but it comes with docker. You can probably install docker another way if you do not want boot2docker itself on your system. |
-| Vagrant | https://www.vagrantup.com/downloads.html (Requires 1.7+) |
+
+| Requirement    | Notes        |
+| -------------- | ------------ |
+| Virtualbox     | https://www.virtualbox.org/wiki/Downloads |
+| Docker         | https://github.com/boot2docker/osx-installer/releases/latest Note: Boot2docker itself isn't used, but it comes with docker. You can probably install docker another way if you do not want boot2docker itself on your system. |
+| Vagrant        | https://www.vagrantup.com/downloads.html (Requires 1.7+) |
 | Vagrant bindfs | Once vagrant is installed run: ``` $ vagrant plugin install vagrant-bindfs ```
-| Ansible | https://devopsu.com/guides/ansible-mac-osx.html |
+| Ansible        | https://devopsu.com/guides/ansible-mac-osx.html |
 
 
 ## Usage
