@@ -22,7 +22,7 @@ A Vagrant provisioned VM for OSX to run Docker containers in.
 
 #### Setup
 ```
-$ git clone git@github.com:SeerUK/OSXContainerHost.git
+$ git clone git@github.com:mwisner/OSXContainerHost.git
 $ cp default.settings.yml settings.yml
 ```
 Edit the settings.yml as necessary
