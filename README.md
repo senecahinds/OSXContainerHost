@@ -11,13 +11,24 @@ A Vagrant provisioned VM to run Docker containers in.
 
 ## Usage
 
+### Setup
 ```
 $ git clone git@github.com:SeerUK/OSXContainerHost.git
+$ cp default.settings.yml settings.yml
+```
+Edit the settings.yml as necessary
+
+### Running
+```
 $ vagrant up
 $ export DOCKER_HOST=tcp://192.168.200.3:2375
 ```
-
 (Or alternatively, add: `export DOCKER_HOST=tcp://192.168.200.3:2375` to whatever shell rc is relevent to your system)
+
+### Rsync
+```
+$ vagrant rsync-auto
+```
 
 ## Things to be wary of
 

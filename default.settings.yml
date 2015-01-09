@@ -9,5 +9,5 @@ vm:
 # Rsync directories
 rsync:
   www:
-    source: /Users/mwisner/Projects/printsites/dockers/store/www
-    dest: /www/
+    source: /path/to/shared/folder
+    dest: /path/to/dest
