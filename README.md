@@ -1,31 +1,38 @@
 OSXContainerHost
 ================
 
-A Vagrant provisioned VM to run Docker containers in.
+A Vagrant provisioned VM for OSX to run Docker containers in.
+* Ubuntu 14.04
+* NSF Support
+* Rsync Support for your project directory
 
-## Prerequisites
+## Requirements
+| Requirement | Notes |
+| ------------------- |
+| Virtualbox | https://www.virtualbox.org/wiki/Downloads |
+| Docker | https://github.com/boot2docker/osx-installer/releases/latest Note: Boot2docker itself isn't used, but it comes with docker. You can probably install docker another way if you do not want boot2docker itself on your system. |
+| Vagrant | https://www.vagrantup.com/downloads.html (Requires 1.7+) |
+| Vagrant bindfs | Once vagrant is installed run: ``` $ vagrant plugin install vagrant-bindfs ```
+| Ansible | https://devopsu.com/guides/ansible-mac-osx.html |
 
-* Vagrant
-* VirtualBox
-* Ansible
 
 ## Usage
 
-### Setup
+#### Setup
 ```
 $ git clone git@github.com:SeerUK/OSXContainerHost.git
 $ cp default.settings.yml settings.yml
 ```
 Edit the settings.yml as necessary
 
-### Running
+#### Running
 ```
 $ vagrant up
 $ export DOCKER_HOST=tcp://192.168.200.3:2375
 ```
 (Or alternatively, add: `export DOCKER_HOST=tcp://192.168.200.3:2375` to whatever shell rc is relevent to your system)
 
-### Rsync
+#### Rsync
 ```
 $ vagrant rsync-auto
 ```
