@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       v.memory = settings['vm']['memory']
     end
 
-    node.vm.network "private_network", ip: "192.168.200.3"
+    node.vm.network "private_network", ip: settings['vm']['ip']
 
     node.nfs.map_uid = Process.uid
     node.nfs.map_gid = Process.gid
@@ -41,12 +41,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         rsync__exclude: ".git/"
     end
 
-    #use rsync for drupal. Non-rsync methods have proven too slow.
-    #config.vm.synced_folder DRUPAL_DIR, "/www", type: "rsync",
-    #  rsync__exclude: ".git/"
-
     node.vm.provision "ansible" do |ansible|
       ansible.playbook = "provisioning/ansible/container_host.yml"
     end
   end
 end
+
+#
+#
+# Print dev information
+puts "###############################\n"
+puts "# NOTE: If this is a newly created vm you might need to run another vagrant reload to get docker working correctly\n\n"
+puts "export DOCKER_HOST=tcp://#{settings['vm']['ip']}:2375"
+puts "\n###############################\n"

@@ -3,6 +3,7 @@
 vm:
   cpus: 4
   memory: 6096
+  ip: 192.168.200.3
 
 #
 # Rsync directories
