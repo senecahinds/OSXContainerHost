@@ -27,11 +27,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     node.nfs.map_gid = Process.gid
 
     #sync the entire users folder for things like logs and whatever else.
-    node.vm.synced_folder "/Users", "/Users.tmp", type: "nfs",
+    node.vm.synced_folder settings['data'], "/data.tmp", type: "nfs",
       mount_options: ['rw', 'vers=3', 'tcp', 'fsc' ,'actimeo=2']
 
     #Use bindfs to set the proper permissions.
-    node.bindfs.bind_folder "/Users.tmp", "/Users",
+    node.bindfs.bind_folder "/data.tmp", "/data",
       create_as_user: true,
       perms: "u=u:g=g:o=o"
 

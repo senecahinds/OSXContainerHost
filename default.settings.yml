@@ -4,10 +4,15 @@ vm:
   cpus: 4
   memory: 6096
   ip: 192.168.200.3
+  home_dir: /Users #/home on linux
+
+#
+# Generic data directory
+data: /path/to/docker-env/data
 
 #
 # Rsync directories
 rsync:
   www:
     source: /path/to/shared/folder
-    dest: /path/to/dest
+    dest: /var/www
