@@ -44,6 +44,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     node.vm.provision "ansible" do |ansible|
       ansible.playbook = "provisioning/ansible/container_host.yml"
     end
+
+    # Configure the window for gatling to coalesce writes.
+    if Vagrant.has_plugin?("vagrant-gatling-rsync")
+      config.gatling.latency = 2.5
+      config.gatling.time_format = "%H:%M:%S"
+    end
+
   end
 end
 

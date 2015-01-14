@@ -16,6 +16,7 @@ A Vagrant provisioned VM for OSX to run Docker containers in.
 | Vagrant        | https://www.vagrantup.com/downloads.html (Requires 1.7+) |
 | Vagrant bindfs | ``` $ vagrant plugin install vagrant-bindfs ``` |
 | Vagrant rsync-back | ``` $ vagrant plugin install vagrant-rsync-back ``` |
+| Vagrant gatling-rsync | ``` $ vagrant plugin install vagrant-gatling-rsync ``` |
 | Ansible        | https://devopsu.com/guides/ansible-mac-osx.html |
 
 
@@ -45,7 +46,7 @@ The problem with this is that it's currently only one-way. Please see https://gi
 
 **File watcher:**
 ```
-$ vagrant rsync-auto
+$ vagrant gatling-rsync-auto
 ```
 
 **Update host with changes made on the vm:**
