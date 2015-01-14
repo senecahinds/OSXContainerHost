@@ -14,7 +14,8 @@ A Vagrant provisioned VM for OSX to run Docker containers in.
 | Virtualbox     | https://www.virtualbox.org/wiki/Downloads |
 | Docker         | https://github.com/boot2docker/osx-installer/releases/latest Note: Boot2docker itself isn't used, but it comes with docker. You can probably install docker another way if you do not want boot2docker itself on your system. |
 | Vagrant        | https://www.vagrantup.com/downloads.html (Requires 1.7+) |
-| Vagrant bindfs | Once vagrant is installed run: ``` $ vagrant plugin install vagrant-bindfs ```
+| Vagrant bindfs | ``` $ vagrant plugin install vagrant-bindfs ``` |
+| Vagrant rsync-back | ``` $ vagrant plugin install vagrant-rsync-back ``` |
 | Ansible        | https://devopsu.com/guides/ansible-mac-osx.html |
 
 
@@ -38,9 +39,21 @@ Verify docker is running correctly with ```docker ps```. If this command returns
 
 
 #### Rsync
+Why Rsync? This vagrant setup is used to develop Drupal sites. During testing vboxfs folder syncing was ~12 seconds, NFS was ~3 seconds but using rsync was 0.5 seconds.
+
+The problem with this is that it's currently only one-way. Please see https://github.com/SeerUK/OSXContainerHost/tree/development-2way_rsync for some information regarding two-way sync using lsync.
+
+**File watcher:**
 ```
 $ vagrant rsync-auto
 ```
+
+**Update host with changes made on the vm:**
+```
+$ vagrant rsync-back
+```
+Note: Not automatic. you'll have do this anytime a change is made on the vm.
+
 
 ## Things to be wary of
 
